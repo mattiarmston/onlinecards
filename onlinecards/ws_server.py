@@ -60,7 +60,9 @@ async def join(websocket: WebSocketServerProtocol, event):
         await websocket.send(json.dumps(event))
 
 async def main():
-    async with websockets.serve(handler, "", 8001):
+    # In the case that we are running inside a docker container, we need to bind
+    # to the container's external IP address so that we can receive messages
+    async with websockets.serve(handler, "0.0.0.0", 8001):
         # Wait for a promise that will never be fulfilled - run forever
         print("Websocket server running")
         await asyncio.Future()

@@ -3,7 +3,8 @@ import sqlite3
 from flask import g
 
 def get_db():
-    database = "dev.sqlite3"
+    # database = "dev.sqlite3"
+    database = "http://flask_server/static/db.sqlite3"
     if "db" not in g:
         g.db = sqlite3.connect(
             database,

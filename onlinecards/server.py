@@ -64,7 +64,7 @@ def create_app():
         return gameID
 
     async def ws_create_game(gameID):
-        async with websockets.connect("ws://127.0.0.1:8001") as ws:
+        async with websockets.connect("ws://ws_server:8001") as ws:
             data = {
                 "type": "create",
                 "gameID": gameID,

@@ -1,0 +1,22 @@
+services:
+  flask_server:
+    build:
+      context: .
+      dockerfile: ./docker/flask_server/Dockerfile
+
+  ws_server:
+    build:
+      context: .
+      dockerfile: ./docker/ws_server/Dockerfile
+
+  db_server:
+    build:
+      context: .
+      dockerfile: ./docker/db_server/Dockerfile
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - "8000:80"
